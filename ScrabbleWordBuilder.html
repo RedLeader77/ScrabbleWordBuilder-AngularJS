@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<head>
+<!--
+   Author: Greg King
+   Project: Scrabble Word Builder
+   Date Created: 5/8/2017
+-->
+
+<title>Scrabble Word Builder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="scrabble, word, builder" />
+<link href="ScrabbleWordBuilder.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="ScrabbleWordBuilderApp" ng-controller="ScrabbleWordBuilderCtrl">
+    
+    <form>
+        <label id="titleLabel">Scrabble Word Builder</label>
+        
+        <label id="initMessage" ng-show="!showForm">Initializing app...</label>
+        
+        <label id="letterTrackerLabel" ng-show="showForm">Letter Tracker</label>
+    
+        <textarea readonly id="letterTrackerTextArea" ng-show="showForm" ng-model="letterTrackerText"></textarea>
+        
+        <label id="rackLabel" ng-show="showForm">Rack</label>
+    
+        <textarea id="rackTextArea" ng-show="showForm" ng-model="rackText" ng-change="inputChanged()"></textarea>
+        
+        <label id="wordLabel" ng-show="showForm">Word (Optional)</label>
+    
+        <textarea id="wordTextArea" ng-show="showForm" ng-model="wordText" ng-change="inputChanged()"></textarea>
+    
+        <input type="button" id="processButton" ng-show="showForm" value="Process" ng-click="processButtonClicked()">
+    
+        <input type="button" id="resetButton" ng-show="showForm" value="Reset" ng-click="resetButtonClicked()">
+    
+        <label id="outputLabel" ng-show="showForm">Output</label>
+    
+        <textarea readonly id="outputTextArea" ng-show="showForm" ng-model="outputText"></textarea>
+    </form>
+
+</div>
+
+<script src="ScrabbleWordBuilderApp.js"></script>
+<script src="ScrabbleWordBuilderCtrl.js"></script>
+
+</body>
+</html>
